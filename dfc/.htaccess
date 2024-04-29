@@ -1,0 +1,13 @@
+# Rewrite engine setup
+RewriteEngine on
+
+# Rewrite rule to serve JSON-LD content from the vocabulary URI if requested
+RewriteCond %{HTTP_ACCEPT} application/ld\+json
+RewriteRule ^$ https://docs.datafoodconsortium.org/XXXX    .json [R=303,L]
+# Do we need to split ontology & taxonomy calls ?
+
+# Rewrite rule for ontology folder
+RewriteRule /ontology/(.*)$ https://docs.datafoodconsortium.org/ontology/src/$1 [R=302,L]
+
+# Rewrite rule for taxonomies folder
+RewriteRule /taxonomies/ https://docs.datafoodconsortium.org/taxonomies/src [R=302,L]

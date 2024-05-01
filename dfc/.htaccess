@@ -2,13 +2,21 @@
 RewriteEngine on
 
 
+# Rewrite rule for contexts folder. MUST be above general ontology rule.
+
+RewriteRule /dfc/ontology/contexts/(.*)$  https://docs.datafoodconsortium.org/ontology/contexts/$1 [R=302,L]
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT"
+
 # Rewrite rule for ontology folder
+
 RewriteRule /dfc/ontology/(.*)$  https://docs.datafoodconsortium.org/ontology/src/$1 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT"
 
 
 # Rewrite rule for taxonomies folder
+
 RewriteRule /dfc/taxonomies/(.*)$ https://docs.datafoodconsortium.org/taxonomies/src/$1 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT"

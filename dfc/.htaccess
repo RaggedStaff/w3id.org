@@ -15,19 +15,19 @@ RewriteEngine on
 
 # Rewrite rule for contexts folder. MUST be above general ontology rule.
 
-RewriteRule ^dfc/ontology/contexts/(.*)$  https://github.com/datafoodconsortium/ontology/releases/latest/download/contexts/$1 [R=302,L]
+RewriteRule ^dfc/ontology/(.*)/context  https://github.com/datafoodconsortium/ontology/releases/latest/download/contexts/$1 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
 
 # Rewrite rule for ontology folder
 
-RewriteRule ^dfc/ontology/(.*)$  https://github.com/datafoodconsortium/ontology/releases/latest/download/$1 [R=302,L]
+RewriteRule ^dfc/ontology/(.*)  https://github.com/datafoodconsortium/ontology/releases/latest/download/$1 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
 
 
 # Rewrite rule for taxonomies folder
 
-RewriteRule ^dfc/taxonomies/(.*)$ https://github.com/datafoodconsortium/taxonomies/releases/latest/download/$1 [R=302,L]
+RewriteRule ^dfc/taxonomies/(.*) https://github.com/datafoodconsortium/taxonomies/releases/latest/download/$1 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"

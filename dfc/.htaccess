@@ -11,23 +11,36 @@ AddType application/ld+json .json
 
 # Rewrite engine setup
 RewriteEngine on
-
+RewriteBase /dfc/
 
 # Rewrite rule for contexts folder. MUST be above general ontology rule.
 
-RewriteRule ^dfc/ontology/(.*)/context  https://github.com/datafoodconsortium/ontology/releases/latest/download/contexts/$1 [R=302,L]
+RewriteRule ^ontology/(.*)/context  https://github.com/datafoodconsortium/ontology/releases/latest/download/contexts/$1 [R=302,L]
+
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
 
-# Rewrite rule for ontology folder
+# Rewrite rule for versioned ontology folders
 
-RewriteRule ^dfc/ontology/(.*)  https://github.com/datafoodconsortium/ontology/releases/latest/download/$1 [R=302,L]
+RewriteRule ^ontology/v([0-9]+.[0-9]+)/(.*)  https://github.com/datafoodconsortium/ontology/releases/v$1/download/$2 [R=302,L]
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
+
+# Rewrite rule for latest ontology folder
+
+RewriteRule ^ontology/(.*)  https://github.com/datafoodconsortium/ontology/releases/latest/download/$2 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
 
 
-# Rewrite rule for taxonomies folder
+# Rewrite rule for versioned taxonomies releases
 
-RewriteRule ^dfc/taxonomies/(.*) https://github.com/datafoodconsortium/taxonomies/releases/latest/download/$1 [R=302,L]
+RewriteRule ^taxonomies/v([0-9]+.[0-9]+)/(.*)  https://github.com/datafoodconsortium/taxonomies/releases/v$1/download/$2 [R=302,L]
+Header add Access-Control-Allow-Origin "*"
+Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
+
+# Rewrite rule for latest taxonomies folder
+
+RewriteRule ^taxonomies/(.*) https://github.com/datafoodconsortium/taxonomies/releases/latest/download/$1 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"

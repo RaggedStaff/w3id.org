@@ -21,7 +21,7 @@ Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
 
 # Rewrite rule for versioned ontology folders
 
-RewriteRule ^odfc/ntology/v([0-9]+.[0-9]+.[0-9]+)/(.*)  https://cdn.jsdelivr.net/gh/datafoodconsortium/ontology@v$1/$2 [R=302,L]
+RewriteRule ^dfc/ontology/v([0-9]+.[0-9]+.[0-9]+)/(.*)  https://cdn.jsdelivr.net/gh/datafoodconsortium/ontology@v$1/$2 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
 

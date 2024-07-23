@@ -34,7 +34,3 @@ Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
 RewriteRule ^taxonomies/(.*) https://cdn.jsdelivr.net/gh/datafoodconsortium/taxonomies@latest/$1 [R=302,L]
 Header add Access-Control-Allow-Origin "*"
 Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS"
-
-# Mop up all other reqests to DFC homepage
-
-RewriteRule ^ https://docs.dfc-standard.org/ [R=302,L]
